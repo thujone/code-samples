@@ -1,0 +1,57 @@
+/****************************************************************************************************
+ * Script Date: 2023-02-08
+ * Description: Add / modify Financing fields in x_OptimizationProjects
+ ****************************************************************************************************/
+
+-- Drop now-defunct Optimize Loan Financing-related fields
+ALTER TABLE x_OptimizationProjects DROP COLUMN OptimizeAmountFinanced
+ALTER TABLE x_OptimizationProjects DROP COLUMN PercentageFinancedMinimum
+ALTER TABLE x_OptimizationProjects DROP COLUMN PercentageFinancedMaximum
+ALTER TABLE x_OptimizationProjects DROP COLUMN FinancingSearchGranularity
+ALTER TABLE x_OptimizationProjects DROP COLUMN DSCRFirstYearTarget
+ALTER TABLE x_OptimizationProjects DROP COLUMN DSCRProjectMinimum
+GO
+
+
+-- Add the new financing-related fields
+ALTER TABLE x_OptimizationProjects ADD HurdleRate DECIMAL(5,2) NULL 
+GO
+
+ALTER TABLE x_OptimizationProjects ADD LCOEAdderCost MONEY NULL 
+GO
+
+ALTER TABLE x_OptimizationProjects ADD OptimizeContract BIT NULL 
+GO
+
+ALTER TABLE x_OptimizationProjects ADD EnergyPrice MONEY NULL 
+GO
+
+
+UPDATE x_OptimizationProjects 
+	SET 
+		HurdleRate = 10, 
+		LCOEAdderCost = 0, 
+		OptimizeContract = 1, 
+		EnergyPrice = 0.25
+GO
+
+ALTER TABLE x_OptimizationProjects ALTER COLUMN HurdleRate DECIMAL(5,2) NOT NULL 
+GO
+
+ALTER TABLE x_OptimizationProjects ALTER COLUMN LCOEAdderCost MONEY NOT NULL 
+GO
+
+ALTER TABLE x_OptimizationProjects ALTER COLUMN OptimizeContract BIT NOT NULL 
+GO
+
+ALTER TABLE x_OptimizationProjects ALTER COLUMN EnergyPrice MONEY NOT NULL 
+GO
+
+
+
+ALTER TABLE x_OptimizationProjects  ALTER COLUMN EquipmentFinancing INT NOT NULL
+GO
+
+ALTER TABLE x_OptimizationProjectResults ALTER COLUMN EquipmentFinancing INT NOT NULL
+GO
+

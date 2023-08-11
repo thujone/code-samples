@@ -1,0 +1,43 @@
+﻿/****************************************************************************************************
+ * Script Date: 2023-02-21
+ * Description: Add new fields for Small Modular Reactor (SMR)
+ ****************************************************************************************************/
+
+ALTER TABLE x_OptimizationProjectNodeTechDetails ADD FrontEndFuelCost Money NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ADD BackEndFuelCost Money NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ADD RefuelingPeriod Decimal(5,2) NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ADD DecommissioningCost Money NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ADD BaseLoadEnable BIT NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ADD BaseLoadSetPointMinDuration Decimal(4,2) NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ADD CycleDepth Decimal(7,4) NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ADD MaxCycle Integer NULL
+GO
+
+UPDATE x_OptimizationProjectNodeTechDetails SET FrontEndFuelCost = 0
+UPDATE x_OptimizationProjectNodeTechDetails SET BackEndFuelCost = 0
+UPDATE x_OptimizationProjectNodeTechDetails SET RefuelingPeriod = 0
+UPDATE x_OptimizationProjectNodeTechDetails SET DecommissioningCost = 0
+UPDATE x_OptimizationProjectNodeTechDetails SET BaseLoadEnable = 1
+UPDATE x_OptimizationProjectNodeTechDetails SET BaseLoadSetPointMinDuration = 0
+UPDATE x_OptimizationProjectNodeTechDetails SET CycleDepth = 0
+UPDATE x_OptimizationProjectNodeTechDetails SET MaxCycle = 0
+GO
+
+ALTER TABLE x_OptimizationProjectNodeTechDetails ALTER COLUMN FrontEndFuelCost Money NOT NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ALTER COLUMN BackEndFuelCost Money NOT NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ALTER COLUMN RefuelingPeriod Decimal(5,2) NOT NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ALTER COLUMN DecommissioningCost Money NOT NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ALTER COLUMN BaseLoadEnable BIT NOT NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ALTER COLUMN BaseLoadSetPointMinDuration Decimal(4,2) NOT NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ALTER COLUMN CycleDepth Decimal(7,4) NOT NULL
+ALTER TABLE x_OptimizationProjectNodeTechDetails ALTER COLUMN MaxCycle Integer NOT NULL
+GO
+
+ALTER TABLE x_OptimizationProjects ADD IncludeSmr BIT NULL
+GO
+
+UPDATE x_OptimizationProjects SET IncludeSmr = 0
+GO
+
+ALTER TABLE x_OptimizationProjects ALTER COLUMN IncludeSmr BIT NOT NULL
+GO
