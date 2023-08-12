@@ -1,4 +1,4 @@
-##Sample Code Notes
+Sample Code Notes
 
 Hello, I've put together screenshots and code from my last two jobs (Presidio from 2017-2019, and Xendee from 2019-2023). I've only included files that are at least 80-90% my code.
 
