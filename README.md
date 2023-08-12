@@ -7,7 +7,3 @@ At Presidio, the Next-Generation Risk Management (NGRM) app was the project I wo
 For Xendee, I've included some samples from two projects. The Economic Optimizer is Xendee platform's main application and took up about 50-60% of my time at Xendee. It shows some of the larger, more complicated features that I worked on. Most of the application was .NET 4.8 MVC, but parts of it were starting to move into modern times, using .NET Core. I've included samples of my work with WebApi, as well as a few of the front end solutions I architected.
 
 The second Xendee project is the One-Line application for generating technical schematics for building microgrids. I spent almost an entire year working on it and built the app from scratch using plain HTML (a little bit of Handlebars), plain ES6 classes, and the YWorks graphing library. It consumed about 25% of my entire time at Xendee. I also worked on a few other smaller React 17/18 and Vue applications.
-
-Anyway, I hope the screenshots and sample code give you a little peek into what I've been busy with the last several years. Thanks for your attention, and I hope to talk again soon!
-
--Rich
