@@ -1,6 +1,6 @@
 /**
  * ES Module for easy, programmatic display of commonly-used
- * Xendee charts using the Chart.js and Highcharts.js Stock library.
+ * Xendee charts using the Chart.js and Highcharts.js Stock libraries.
  * @module ChartMaker
  * @license Copyright (c) 2022 Xendee Corporation. All rights reserved.
  */
